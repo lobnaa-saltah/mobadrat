@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Main Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">TIME FOR ALL</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="register.html" class="btn btn-outline btn-sm">حساب جديد</a>
+        <a href="index.html" class="btn btn-secondary btn-sm">الرئيسية</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auth Content Wrapper -->
+  <main class="auth-wrapper">
+    <div class="auth-container">
+      <div class="auth-header">
+        <div class="auth-logo-badge">🔑</div>
+        <h1 class="auth-title">تسجيل الدخول</h1>
+        <p class="auth-subtitle">أهلاً بك مجدداً في مجتمع تبادل الوقت والتكافل</p>
+      </div>
+
+      <!-- Quick Fill Demo Accounts (For Hackathon Judges & Testing) -->
+      <div class="demo-quick-login-box">
+        <div class="demo-quick-title">
+          <span>⚡</span>
+          <span>دخول سريع بحسابات تجريبية مسبقة الإعداد:</span>
+        </div>
+        <div class="demo-pills-list">
+          <button type="button" class="demo-user-pill" onclick="quickFillLogin('ahmed@example.com', 'password')">
+            <span>👨‍🏫 أحمد محمود</span>
+            <span class="badge-role">٥ ساعات رصيد</span>
+          </button>
+          <button type="button" class="demo-user-pill" onclick="quickFillLogin('sara@example.com', 'password')">
+            <span>👩‍💻 سارة علي</span>
+            <span class="badge-role">٤ ساعات رصيد</span>
+          </button>
+          <button type="button" class="demo-user-pill" onclick="quickFillLogin('ibrahim@example.com', 'password')">
+            <span>🤝 عم إبراهيم</span>
+            <span class="badge-role">٠ رصيد (تكافل)</span>
+          </button>
+          <button type="button" class="demo-user-pill" onclick="quickFillLogin('admin@waqt.org', 'admin')">
+            <span>🛡️ مدير المنصة</span>
+            <span class="badge-role">مسؤول النظام</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">البريد الإلكتروني</label>
+          <input type="email" id="login-email" class="form-control" placeholder="example@domain.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="form-label" for="login-password" style="margin-bottom: 0;">كلمة المرور</label>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">(أي كلمة مرور للحسابات التجريبية)</span>
+          </div>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+          تسجيل الدخول إلى حسابي
+        </button>
+      </form>
+
+      <div class="auth-footer-links">
+        ليس لديك حساب بعد؟ <a href="register.html">أنشئ حساباً جديداً واحصل على ساعتين رصيد ترحيبي مجاناً!</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

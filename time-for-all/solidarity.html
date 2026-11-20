@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صندوق التكافل المجتمعي | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .solidarity-hero {
+      background: linear-gradient(135deg, #102B22 0%, #174C3C 60%, #205e4d 100%);
+      color: #fff;
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .fund-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: -35px;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 5;
+    }
+    .fund-kpi-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .fund-kpi-card.highlight {
+      border: 2px solid var(--accent);
+      background: linear-gradient(180deg, #fff 0%, #fdfaf3 100%);
+    }
+    .two-flows-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 50px;
+    }
+    .flow-panel-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      padding: 36px;
+    }
+    .preset-hours-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .preset-btn {
+      flex: 1;
+      padding: 10px;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background: var(--bg-warm);
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .preset-btn:hover, .preset-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    @media (max-width: 900px) {
+      .fund-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 20px;
+      }
+      .two-flows-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">صندوق التكافل المجتمعي</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link">استكشف الخدمات</a>
+        <a href="solidarity.html" class="nav-link active">صندوق التكافل</a>
+        <a href="wallet.html" class="nav-link">محفظة الساعات</a>
+      </nav>
+
+      <div class="nav-actions" id="nav-user-actions"></div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="solidarity-hero">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <span class="badge badge-solidarity" style="font-size: 0.95rem; padding: 6px 18px; margin-bottom: 16px;">
+        🤝 صندوق التكافل وساعات التضامن
+      </span>
+      <h1 style="font-size: 2.8rem; font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.25;">
+        "لأن المساعدة حق.. مش دين."
+      </h1>
+      <p style="font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 24px;">
+        صندوق التكافل هو مخزون الساعات المشترك الذي يتبرع به الأعضاء لتمكين كبار السن، وذوي الهمم، والأسر الأولى بالرعاية، والطلاب المتعثرين من تلقي المساعدة دون أن يشعروا بأنهم مطالبون بسداد أي مقابل.
+      </p>
+      <div style="font-size: 0.95rem; color: var(--accent); font-weight: 700;">
+        كل ساعة تتبرع بها تتحول إلى أثر حقيقي وفرج مباشر لشخص في أشد الحاجة إليها.
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    
+    <!-- KPI Statistics Grid -->
+    <div class="fund-kpi-grid">
+      <div class="fund-kpi-card highlight">
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--secondary); margin-bottom: 6px;">الساعات المتاحة للصرف</div>
+        <div style="font-size: 2.8rem; font-weight: 900; color: var(--accent); line-height: 1;" id="fund-stat-available">0</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">جاهزة لتغطية طلبات المساعدة</div>
+      </div>
+
+      <div class="fund-kpi-card">
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">إجمالي الساعات المتبرع بها</div>
+        <div style="font-size: 2.8rem; font-weight: 900; color: var(--primary); line-height: 1;" id="fund-stat-total">0</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">منذ انطلاق المبادرة</div>
+      </div>
+
+      <div class="fund-kpi-card">
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">ساعات تكافل صُرفت بالفعل</div>
+        <div style="font-size: 2.8rem; font-weight: 900; color: #1a73e8; line-height: 1;" id="fund-stat-used">0</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">خدمات اكتملت لأصحابها</div>
+      </div>
+
+      <div class="fund-kpi-card">
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">حالات وطلبات تم دعمها</div>
+        <div style="font-size: 2.8rem; font-weight: 900; color: #137333; line-height: 1;" id="fund-stat-supported">0</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">مستفيد بدون أي مديونية</div>
+      </div>
+    </div>
+
+    <!-- The Two Core Flows Side by Side -->
+    <div class="two-flows-grid">
+      
+      <!-- Flow 1: Donate Hours -->
+      <div class="flow-panel-card" id="donate-section">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+            🤲
+          </div>
+          <div>
+            <h2 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 2px;">تبرع بساعات من رصيدك</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">ساهم في تغذية رصيد الصندوق لدعم غير القادرين</p>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-warm); padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 20px; border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.9rem; color: var(--text-muted);">رصيدك المتاح حالياً للتبرع:</span>
+            <span style="font-weight: 800; font-size: 1.2rem; color: var(--primary);" id="donor-current-balance">0 ساعات</span>
+          </div>
+        </div>
+
+        <form id="solidarity-donation-form">
+          <div class="form-group">
+            <label class="form-label">اختر عدد الساعات أو أدخل رقماً:</label>
+            <div class="preset-hours-group">
+              <button type="button" class="preset-btn active" data-hours="1">ساعة واحدة</button>
+              <button type="button" class="preset-btn" data-hours="2">ساعتان</button>
+              <button type="button" class="preset-btn" data-hours="3">٣ ساعات</button>
+              <button type="button" class="preset-btn" data-hours="5">٥ ساعات</button>
+            </div>
+            <input type="number" id="custom-donation-hours" class="form-control" value="1" min="1" max="50" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="donation-note">رسالة تضامن أو دعاء للأعضاء (اختياري)</label>
+            <input type="text" id="donation-note" class="form-control" placeholder="مثال: نسأل الله أن ييسر بها أمراً لكل محتاج">
+          </div>
+
+          <button type="submit" class="btn btn-accent btn-block btn-lg" id="submit-donation-btn">
+            تأكيد التبرع وإيداع الساعات في الصندوق
+          </button>
+        </form>
+
+        <div style="margin-top: 18px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+          * تُسجل كل ساعة تبرع في سجل محفظتك الشخصية وتظهر في إحصاءات المنصة العامة للشفافية.
+        </div>
+      </div>
+
+      <!-- Flow 2: Request Solidarity Assistance -->
+      <div class="flow-panel-card" id="request-help">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--light-green); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+            🙋
+          </div>
+          <div>
+            <h2 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 2px;">طلب مساعدة تكافلية</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted);">بدون أي رصيد وبدون أي إلزام بالسداد</p>
+          </div>
+        </div>
+
+        <div style="background: #fdfaf3; padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 20px; border: 1px dashed var(--accent); font-size: 0.88rem; color: #7a530f;">
+          <strong>تنبيه هام ومحترم:</strong>
+          هذه الخدمة ليست صدقة أو إحساناً، بل هي حقك الإنساني على مجتمعك. لا يترتب عليك أي التزام مستقبلي لرد الساعات إطلاقاً.
+        </div>
+
+        <form id="solidarity-request-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="sol-name">الاسم الكريم للمستفيد *</label>
+              <input type="text" id="sol-name" class="form-control" placeholder="الاسم ثلاثي" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sol-phone">رقم الهاتف للتواصل *</label>
+              <input type="tel" id="sol-phone" class="form-control" placeholder="010xxxxxxxx" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="sol-cat">نوع المساعدة المطلوبة *</label>
+              <select id="sol-cat" class="form-select" required>
+                <option value="">-- اختر نوع المساعدة --</option>
+                <option value="المساعدة اليومية والتقنية">مساعدة تقنية وتطبيقات حكومية لكبار السن</option>
+                <option value="التعليم والدروس">شرح مواد دراسية للطلاب المتعثرين</option>
+                <option value="اللغات والترجمة">ترجمة تقارير طبية أو أوراق ضرورية</option>
+                <option value="المساعدة لذوي الإعاقة">مرافقة ومساعدة ذوي الهمم</option>
+                <option value="الحرف والفنون">إصلاحات منزلية بسيطة أو خياطة</option>
+                <option value="أخرى">أخرى (يرجى توضيحها)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sol-hours">المدة التقديرية (بالساعات) *</label>
+              <select id="sol-hours" class="form-select" required>
+                <option value="1">ساعة واحدة</option>
+                <option value="2" selected>ساعتان</option>
+                <option value="3">٣ ساعات</option>
+                <option value="4">٤ ساعات</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="sol-city">المدينة / الحي *</label>
+              <input type="text" id="sol-city" class="form-control" placeholder="مثال: القاهرة - السيدة زينب" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sol-contact">طريقة التواصل المفضلة *</label>
+              <select id="sol-contact" class="form-select" required>
+                <option value="هاتفياً">مكالمة هاتفية</option>
+                <option value="واتساب">رسائل واتساب</option>
+                <option value="شخصياً">لقاء شخصي مباشر</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sol-desc">اشرح حاجتك وظروفك بوضوح *</label>
+            <textarea id="sol-desc" class="form-control" rows="3" placeholder="اكتب تفاصيل المساعدة التي تحتاجها، وأي اشتراطات تفضلها في المتطوع..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            إرسال طلب المساعدة إلى إدارة الصندوق
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Active Solidarity Stories & Admin Review Simulation Section -->
+    <div class="dash-panel" style="margin-bottom: 60px;">
+      <div class="dash-panel-header">
+        <div>
+          <h3 class="dash-panel-title">طلبات التكافل وقصص الدعم المجتمعي الحالية</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
+            نماذج لطلبات تكافلية مسجلة في المنصة يتم تنسيقها وتعيين متطوعين لإنجازها.
+          </p>
+        </div>
+        <a href="admin.html" class="btn btn-secondary btn-sm">🛡️ مراجعة واعتماد الطلبات (لوحة الإدارة)</a>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>رقم الطلب</th>
+              <th>المستفيد (اسم رمزي)</th>
+              <th>نوع المساعدة</th>
+              <th>المدينة</th>
+              <th>الساعات المطلوبة</th>
+              <th>المتطوع المكلف</th>
+              <th>حالة الطلب</th>
+            </tr>
+          </thead>
+          <tbody id="solidarity-apps-tbody">
+            <!-- Rendered by js/solidarity.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>جميع الحقوق محفوظة © ٢٠٢٥ - مبادرة وقت لبعض</div>
+      <div>صندوق التكافل المجتمعي: المساعدة حق.. مش دين</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/solidarity.js"></script>
+</body>
+</html>

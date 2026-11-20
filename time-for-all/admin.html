@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إدارة المبادرة (Admin) | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .admin-badge {
+      background: var(--primary);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+    .admin-tab-content {
+      display: none;
+    }
+    .admin-tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap" style="background: var(--accent); color: var(--primary);">
+          🛡️
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">لوحة الإدارة والتحكم (Admin Panel)</span>
+        </div>
+      </a>
+
+      <div class="nav-actions" id="nav-user-actions"></div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    
+    <!-- Admin Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-user-card" style="background: #123d30; color: #fff;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="مدير المنصة" class="sidebar-avatar" style="border-color: var(--accent);">
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" style="color: #fff;">أ/ سامي عبد الرحيم</div>
+          <div class="sidebar-user-role" style="color: var(--accent);">مدير المبادرة • Admin</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <button class="sidebar-link active" data-admin-tab="tab-overview" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>📊</span>
+          <span>نظرة عامة وإحصاءات</span>
+        </button>
+        <button class="sidebar-link" data-admin-tab="tab-solidarity" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>🤝</span>
+          <span>طلبات التكافل والمساعدات</span>
+          <span class="sidebar-badge" id="admin-solidarity-badge">0</span>
+        </button>
+        <button class="sidebar-link" data-admin-tab="tab-users" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>👥</span>
+          <span>إدارة المستخدمين</span>
+        </button>
+        <button class="sidebar-link" data-admin-tab="tab-services" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>🛠️</span>
+          <span>إدارة الخدمات المعروضة</span>
+        </button>
+        <button class="sidebar-link" data-admin-tab="tab-requests" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>📋</span>
+          <span>متابعة طلبات التبادل</span>
+        </button>
+        <button class="sidebar-link" data-admin-tab="tab-ledger" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>📑</span>
+          <span>دفتر المعاملات العام</span>
+        </button>
+        <button class="sidebar-link" data-admin-tab="tab-settings" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
+          <span>⚙️</span>
+          <span>إعدادات بنك الوقت</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="dashboard.html" class="btn btn-secondary btn-sm btn-block" style="margin-bottom: 8px;">
+          ← العودة للواجهة العادية
+        </a>
+      </div>
+    </aside>
+
+    <!-- Admin Main Body -->
+    <main class="dashboard-main">
+      
+      <!-- TAB 1: OVERVIEW -->
+      <div id="tab-overview" class="admin-tab-content active">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>لوحة المتابعة الشاملة لمبادرة وقت لبعض 🛡️</h1>
+            <p>مراقبة لحظية لحركة الساعات، التكافل المجتمعي، وتفاعل الطلاب.</p>
+          </div>
+          <div>
+            <button class="btn btn-outline btn-sm" onclick="resetAllDemoData()">🔄 إعادة ضبط البيانات التجريبية</button>
+          </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card highlight">
+            <div class="metric-info">
+              <span class="metric-title">رصيد صندوق التكافل المتاح</span>
+              <span class="metric-val" id="admin-stat-solidarity-avail">0</span>
+              <span class="metric-sub">ساعات جاهزة للدعم الفوري</span>
+            </div>
+            <div class="metric-icon-box">🤝</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-info">
+              <span class="metric-title">إجمالي الأعضاء المسجلين</span>
+              <span class="metric-val" id="admin-stat-users-count">0</span>
+              <span class="metric-sub">طالب وعضو مجتمعي</span>
+            </div>
+            <div class="metric-icon-box" style="background: #e8f0fe; color: #1a73e8;">👥</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-info">
+              <span class="metric-title">الخدمات المعروضة في السوق</span>
+              <span class="metric-val" id="admin-stat-services-count">0</span>
+              <span class="metric-sub">مهارات متنوعة متاحة</span>
+            </div>
+            <div class="metric-icon-box" style="background: #e6f4ea; color: #137333;">🛠️</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-info">
+              <span class="metric-title">إجمالي الساعات المتبادلة</span>
+              <span class="metric-val" id="admin-stat-hours-exchanged">0</span>
+              <span class="metric-sub">ساعة تطوع وتبادل معرفي</span>
+            </div>
+            <div class="metric-icon-box" style="background: var(--accent-light); color: var(--accent);">⏱️</div>
+          </div>
+        </div>
+
+        <!-- Fast Actions & Pending Reviews -->
+        <div class="dashboard-grid-2">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">طلبات تكافل تنتظر اعتماد وتعيين متطوع</h3>
+              <button class="btn btn-secondary btn-sm" onclick="switchAdminTab('tab-solidarity')">عرض الكل</button>
+            </div>
+            <div class="dash-panel-body" id="admin-overview-pending-solidarity">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">أحدث العمليات في دفتر المعاملات</h3>
+              <button class="btn btn-secondary btn-sm" onclick="switchAdminTab('tab-ledger')">دفتر الحسابات</button>
+            </div>
+            <div class="dash-panel-body" id="admin-overview-recent-txs">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: SOLIDARITY APPLICATIONS MANAGEMENT -->
+      <div id="tab-solidarity" class="admin-tab-content">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>إدارة ومراجعة طلبات التكافل المجتمعي 🤝</h1>
+            <p>مراجعة طلبات غير القادرين، تعيين متطوعين مناسبين، وصرف ساعات الدعم من الصندوق.</p>
+          </div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>المستفيد</th>
+                  <th>الهاتف</th>
+                  <th>المدينة</th>
+                  <th>نوع المساعدة</th>
+                  <th>الساعات</th>
+                  <th>المتطوع المكلف</th>
+                  <th>الحالة</th>
+                  <th>الإجراءات الإدارية</th>
+                </tr>
+              </thead>
+              <tbody id="admin-solidarity-tbody">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: USERS MANAGEMENT -->
+      <div id="tab-users" class="admin-tab-content">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>سجل أعضاء المنصة وبنك الوقت 👥</h1>
+            <p>عرض تفاصيل الأعضاء، أرصدتهم، وتاريخ تبادل الساعات.</p>
+          </div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>الاسم</th>
+                  <th>البريد الإلكتروني</th>
+                  <th>الجامعة / المدينة</th>
+                  <th>الدور</th>
+                  <th>الرصيد المتاح</th>
+                  <th>مكتسب / مصروف</th>
+                  <th>تبرعات</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="admin-users-tbody">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: SERVICES MANAGEMENT -->
+      <div id="tab-services" class="admin-tab-content">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>إدارة ومراجعة الخدمات المعروضة في السوق 🛠️</h1>
+            <p>مراجعة محتوى الخدمات والتحقق من توافقها مع ميثاق المبادرة المجتمعية.</p>
+          </div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>عنوان الخدمة</th>
+                  <th>مقدم الخدمة</th>
+                  <th>المجال</th>
+                  <th>المدة</th>
+                  <th>النوع</th>
+                  <th>الحالة</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="admin-services-tbody">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: SERVICE REQUESTS MONITORING -->
+      <div id="tab-requests" class="admin-tab-content">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>متابعة طلبات الخدمات المتبادلة بين الأعضاء 📋</h1>
+            <p>مراقبة حركة تقديم وتأكيد الخدمات وضمان عدم حدوث نزاعات أو تعطيل.</p>
+          </div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>الخدمة</th>
+                  <th>طالب الخدمة</th>
+                  <th>مقدم الخدمة</th>
+                  <th>الساعات</th>
+                  <th>الموعد</th>
+                  <th>النوع</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody id="admin-requests-tbody">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 6: GLOBAL TRANSACTION LEDGER -->
+      <div id="tab-ledger" class="admin-tab-content">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>دفتر المعاملات العام وميزان الساعات 📑</h1>
+            <p>سجل شفاف وغير قابل للتلاعب لكل حركة ساعات تمت في بنك الوقت منذ التأسيس.</p>
+          </div>
+        </div>
+
+        <div class="dash-panel">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>التاريخ والوقت</th>
+                  <th>صاحب الحساب</th>
+                  <th>نوع العملية</th>
+                  <th>الوصف والتفاصيل</th>
+                  <th>المقدار</th>
+                  <th>الرصيد بعدها</th>
+                </tr>
+              </thead>
+              <tbody id="admin-ledger-tbody">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 7: SYSTEM SETTINGS -->
+      <div id="tab-settings" class="admin-tab-content">
+        <div class="dashboard-header">
+          <div class="dash-title-wrap">
+            <h1>إعدادات بنك الوقت وسياسات المنصة ⚙️</h1>
+            <p>التحكم في الرصيد الترحيبي وسياسات صندوق التكافل وضبط قواعد المبادرة.</p>
+          </div>
+        </div>
+
+        <div class="dash-panel" style="max-width: 650px;">
+          <div class="dash-panel-header">
+            <h3 class="dash-panel-title">قواعد وإعدادات الساعات</h3>
+          </div>
+          <div class="dash-panel-body">
+            <form id="admin-settings-form">
+              <div class="form-group">
+                <label class="form-label" for="conf-welcome-bonus">الرصيد الترحيبي للأعضاء الجدد (ساعات) *</label>
+                <input type="number" id="conf-welcome-bonus" class="form-control" min="0" max="10" required>
+                <div class="form-help">عدد الساعات المجانية الممنوحة لكل حساب جديد عند التسجيل لتشجيعه على البدء فوراً.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="conf-solidarity-min">السماح بطلب التكافل للرصيد الصفري (Zero-balance)</label>
+                <select id="conf-zero-solidarity" class="form-select">
+                  <option value="true">مفعل (يمكن لأي عضو بدون رصيد طلب المساعدة التكافلية)</option>
+                  <option value="false">معطل</option>
+                </select>
+                <div class="form-help">جوهر مبادرة وقت لبعض: ألا يحرم أي محتاج من المساعدة بسبب عدم امتلاكه رصيداً.</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 14px;">
+                حفظ الإعدادات في LocalStorage
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Assign Volunteer Modal -->
+  <div class="modal-overlay" id="assign-volunteer-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">تعيين متطوع لطلب التكافل</h3>
+        <button class="modal-close-btn" onclick="closeAssignModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="assign-app-id">
+        <p style="font-size: 0.95rem; margin-bottom: 16px;">
+          اختر من أعضاء المنصة من يمتلك المهارة المطلوبة لإنجاز هذا الطلب التكافلي.
+          سيتم تحويل الساعات له من <strong>صندوق التكافل</strong> عند إتمام المهمة!
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" for="volunteer-select">اختر المتطوع المناسب *</label>
+          <select id="volunteer-select" class="form-select" required>
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-sm" onclick="closeAssignModal()">إلغاء</button>
+        <button class="btn btn-primary btn-sm" id="confirm-assign-btn">تكليف المتطوع رسمياً</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

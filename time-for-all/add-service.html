@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أضف خدمة جديدة | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">إضافة خدمة جديدة</span>
+        </div>
+      </a>
+
+      <div class="nav-actions" id="nav-user-actions"></div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-user-card">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="صورة المستخدم" class="sidebar-avatar" id="sidebar-user-avatar">
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" id="sidebar-user-name">جارٍ التحميل...</div>
+          <div class="sidebar-user-role" id="sidebar-user-city">...</div>
+        </div>
+      </div>
+
+      <div class="sidebar-balance-widget">
+        <div>
+          <div class="sb-balance-title">الرصيد المتاح</div>
+          <div class="sb-balance-val"><span id="sidebar-balance-num">0</span> <span>ساعات</span></div>
+        </div>
+        <a href="wallet.html" class="btn btn-primary btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">المحفظة</a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-link">
+          <span>📊</span>
+          <span>الرئيسية</span>
+        </a>
+        <a href="services.html" class="sidebar-link">
+          <span>🔍</span>
+          <span>استكشف الخدمات</span>
+        </a>
+        <a href="add-service.html" class="sidebar-link active">
+          <span>➕</span>
+          <span>أضف خدمة جديدة</span>
+        </a>
+        <a href="wallet.html" class="sidebar-link">
+          <span>💼</span>
+          <span>محفظة الساعات</span>
+        </a>
+        <a href="solidarity.html" class="sidebar-link">
+          <span>🤝</span>
+          <span>صندوق التكافل</span>
+        </a>
+        <a href="gift-hours.html" class="sidebar-link">
+          <span>🎁</span>
+          <span>إهداء الساعات</span>
+        </a>
+        <a href="my-requests.html" class="sidebar-link">
+          <span>📋</span>
+          <span>طلباتي والخدمات</span>
+        </a>
+        <a href="profile.html" class="sidebar-link">
+          <span>👤</span>
+          <span>ملفي الشخصي</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Form Area -->
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div class="dash-title-wrap">
+          <h1>أضف مهارة أو خدمة جديدة للتبادل</h1>
+          <p>شارك معارفك وخبراتك مع زملائك في المجتمع واكسب ساعات رصيد عند إتمام الخدمة.</p>
+        </div>
+      </div>
+
+      <div class="dash-panel" style="max-width: 800px; margin: 0 auto;">
+        <div class="dash-panel-header">
+          <h3 class="dash-panel-title">تفاصيل وبيانات الخدمة المعروضة</h3>
+        </div>
+        <div class="dash-panel-body">
+          <form id="add-service-form">
+            
+            <div class="form-group">
+              <label class="form-label" for="srv-title">عنوان الخدمة *</label>
+              <input type="text" id="srv-title" class="form-control" placeholder="مثال: شرح مبادئ الإحصاء وحل امتحانات سابقة" required>
+              <div class="form-help">اجعل العنوان واضحاً ومحدداً ليعرف الأعضاء نوع الفائدة بدقة.</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="srv-category">المجال / التصنيف *</label>
+                <select id="srv-category" class="form-select" required>
+                  <option value="">-- اختر التصنيف المناسب --</option>
+                  <option value="التعليم والدروس">التعليم والدروس</option>
+                  <option value="التكنولوجيا والتحول الرقمي">التكنولوجيا والتحول الرقمي</option>
+                  <option value="اللغات والترجمة">اللغات والترجمة</option>
+                  <option value="الحرف والفنون">الحرف والفنون</option>
+                  <option value="المساعدة اليومية">المساعدة اليومية</option>
+                  <option value="الإرشاد المهني">الإرشاد المهني</option>
+                  <option value="الخدمات المجتمعية">الخدمات المجتمعية</option>
+                  <option value="المهارات الاحترافية">المهارات الاحترافية</option>
+                  <option value="المساعدة لذوي الإعاقة">المساعدة لذوي الإعاقة</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="srv-duration">مدة الجلسة أو الخدمة (بالساعات) *</label>
+                <select id="srv-duration" class="form-select" required>
+                  <option value="1">ساعة واحدة (١ رصيد)</option>
+                  <option value="2" selected>ساعتان (٢ رصيد)</option>
+                  <option value="3">٣ ساعات (٣ رصيد)</option>
+                  <option value="4">٤ ساعات (٤ رصيد)</option>
+                </select>
+                <div class="form-help">كل ساعة عمل تعادل ساعة واحدة تضاف لرصيدك عند إتمام الخدمة.</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="srv-type">طريقة التقديم *</label>
+                <select id="srv-type" class="form-select" required>
+                  <option value="online">عن بُعد (عبر تطبيق زووم / جوجل ميت / واتساب)</option>
+                  <option value="in-person">حضوري (لقاء شخصي في الجامعة أو مكان عام)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="srv-location">الموقع أو الرابط الافتراضي *</label>
+                <input type="text" id="srv-location" class="form-control" placeholder="مثال: مكتبة الجامعة أو عبر زووم" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="srv-availability">المواعيد المفضلة المتاحة لديك *</label>
+              <input type="text" id="srv-availability" class="form-control" placeholder="مثال: مساء السبت والاثنين من ٦ إلى ٩ مساءً" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="srv-short-desc">وصف موجز ومختصر (يظهر في بطاقات البحث) *</label>
+              <input type="text" id="srv-short-desc" class="form-control" placeholder="ملخص في سطر أو سطرين يشرح جوهر المساعدة..." required maxlength="120">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="srv-full-desc">الوصف التفصيلي وما تشمله الجلسة *</label>
+              <textarea id="srv-full-desc" class="form-control" rows="5" placeholder="اشرح بالتفصيل ماذا سيستفيد العضو، وما هي الأدوات أو التجهيزات المطلوبة قبيل اللقاء..." required></textarea>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
+              <a href="services.html" class="btn btn-outline">إلغاء</a>
+              <button type="submit" class="btn btn-primary btn-lg">نشر الخدمة في المنصة</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

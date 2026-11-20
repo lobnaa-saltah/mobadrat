@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الملف الشخصي | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .profile-hero {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .profile-avatar-large {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+    @media (max-width: 768px) {
+      .profile-hero {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">الملف الشخصي</span>
+        </div>
+      </a>
+
+      <div class="nav-actions" id="nav-user-actions"></div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-user-card">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="صورة المستخدم" class="sidebar-avatar" id="sidebar-user-avatar">
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" id="sidebar-user-name">جارٍ التحميل...</div>
+          <div class="sidebar-user-role" id="sidebar-user-city">...</div>
+        </div>
+      </div>
+
+      <div class="sidebar-balance-widget">
+        <div>
+          <div class="sb-balance-title">الرصيد المتاح</div>
+          <div class="sb-balance-val"><span id="sidebar-balance-num">0</span> <span>ساعات</span></div>
+        </div>
+        <a href="wallet.html" class="btn btn-primary btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">المحفظة</a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-link">
+          <span>📊</span>
+          <span>الرئيسية</span>
+        </a>
+        <a href="services.html" class="sidebar-link">
+          <span>🔍</span>
+          <span>استكشف الخدمات</span>
+        </a>
+        <a href="add-service.html" class="sidebar-link">
+          <span>➕</span>
+          <span>أضف خدمة جديدة</span>
+        </a>
+        <a href="wallet.html" class="sidebar-link">
+          <span>💼</span>
+          <span>محفظة الساعات</span>
+        </a>
+        <a href="solidarity.html" class="sidebar-link">
+          <span>🤝</span>
+          <span>صندوق التكافل</span>
+        </a>
+        <a href="gift-hours.html" class="sidebar-link">
+          <span>🎁</span>
+          <span>إهداء الساعات</span>
+        </a>
+        <a href="my-requests.html" class="sidebar-link">
+          <span>📋</span>
+          <span>طلباتي والخدمات</span>
+        </a>
+        <a href="profile.html" class="sidebar-link active">
+          <span>👤</span>
+          <span>ملفي الشخصي</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Profile Content -->
+    <main class="dashboard-main">
+      
+      <!-- Profile Hero Card -->
+      <div class="profile-hero">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=250&q=80" alt="صورة العضو" class="profile-avatar-large" id="prof-hero-avatar">
+        <div style="flex: 1;">
+          <h2 style="font-size: 1.6rem; color: var(--primary); margin-bottom: 4px;" id="prof-hero-name">اسم المستخدم</h2>
+          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px;" id="prof-hero-meta">
+            جامعة القاهرة • القاهرة
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="prof-hero-skills">
+            <!-- Badges -->
+          </div>
+        </div>
+        <div style="text-align: center; background: var(--bg-warm); padding: 16px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <div style="font-size: 0.85rem; color: var(--text-muted);">رصيد الساعات</div>
+          <div style="font-size: 2rem; font-weight: 900; color: var(--primary);" id="prof-hero-balance">0</div>
+          <a href="wallet.html" class="btn btn-primary btn-sm" style="margin-top: 6px;">عرض المحفظة</a>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2">
+        
+        <!-- Left: Edit Profile Form -->
+        <div class="dash-panel">
+          <div class="dash-panel-header">
+            <h3 class="dash-panel-title">تعديل البيانات الشخصية</h3>
+          </div>
+          <div class="dash-panel-body">
+            <form id="profile-edit-form">
+              <div class="form-group">
+                <label class="form-label" for="edit-name">الاسم الكامل *</label>
+                <input type="text" id="edit-name" class="form-control" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="edit-email">البريد الإلكتروني (للعرض)</label>
+                  <input type="email" id="edit-email" class="form-control" readonly style="background: var(--bg-warm); cursor: not-allowed;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="edit-phone">رقم الهاتف *</label>
+                  <input type="tel" id="edit-phone" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="edit-city">المدينة / الحي *</label>
+                  <input type="text" id="edit-city" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="edit-university">الجامعة أو المؤسسة</label>
+                  <input type="text" id="edit-university" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="edit-avatar">رابط الصورة الشخصية (URL)</label>
+                <input type="url" id="edit-avatar" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="edit-skills">المهارات والمعارف (افصل بفاصلة)</label>
+                <input type="text" id="edit-skills" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="edit-bio">النبذة التعريفية</label>
+                <textarea id="edit-bio" class="form-control" rows="4"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                حفظ التعديلات
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Offered Services by this User -->
+        <div>
+          <div class="dash-panel" style="margin-bottom: 24px;">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">خدماتي المعروضة في المنصة</h3>
+              <a href="add-service.html" class="btn btn-secondary btn-sm">➕ إضافة خدمة</a>
+            </div>
+            <div class="dash-panel-body" id="my-services-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">إحصاءات العضوية والنشاط</h3>
+            </div>
+            <div class="dash-panel-body">
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+                <span style="color: var(--text-muted);">تاريخ الانضمام للمبادرة:</span>
+                <strong id="stat-join-date">-</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+                <span style="color: var(--text-muted);">إجمالي الساعات المكتسبة:</span>
+                <strong id="stat-total-earned" style="color: #137333;">-</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+                <span style="color: var(--text-muted);">ساعات التبرع للتكافل:</span>
+                <strong id="stat-total-donated" style="color: var(--accent);">-</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+                <span style="color: var(--text-muted);">تقييم المجتمع:</span>
+                <strong style="color: var(--accent);">⭐️ 5.0 / 5 (عضو موثوق)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentUser = Storage.getCurrentUser();
+      if (!currentUser) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Populate sidebar
+      document.getElementById('sidebar-user-avatar').src = currentUser.avatar;
+      document.getElementById('sidebar-user-name').textContent = currentUser.name;
+      document.getElementById('sidebar-user-city').textContent = currentUser.city || 'القاهرة';
+      document.getElementById('sidebar-balance-num').textContent = currentUser.balance;
+
+      // Populate hero
+      document.getElementById('prof-hero-avatar').src = currentUser.avatar;
+      document.getElementById('prof-hero-name').textContent = currentUser.name;
+      document.getElementById('prof-hero-meta').textContent = `${currentUser.university || 'جامعة القاهرة'} • ${currentUser.city || 'القاهرة'}`;
+      document.getElementById('prof-hero-balance').textContent = currentUser.balance;
+
+      const skillsContainer = document.getElementById('prof-hero-skills');
+      skillsContainer.innerHTML = (currentUser.skills || []).map(s => `
+        <span class="badge" style="background: var(--light-green); color: var(--primary);">${s}</span>
+      `).join('');
+
+      // Populate form
+      document.getElementById('edit-name').value = currentUser.name;
+      document.getElementById('edit-email').value = currentUser.email;
+      document.getElementById('edit-phone').value = currentUser.phone || '';
+      document.getElementById('edit-city').value = currentUser.city || '';
+      document.getElementById('edit-university').value = currentUser.university || '';
+      document.getElementById('edit-avatar').value = currentUser.avatar || '';
+      document.getElementById('edit-skills').value = (currentUser.skills || []).join('، ');
+      document.getElementById('edit-bio').value = currentUser.bio || '';
+
+      // Populate stats
+      document.getElementById('stat-join-date').textContent = currentUser.joinedDate || '2025-02-01';
+      document.getElementById('stat-total-earned').textContent = `${currentUser.totalEarned || 0} ساعات`;
+      document.getElementById('stat-total-donated').textContent = `${currentUser.totalDonated || 0} ساعات`;
+
+      // Render My Offered Services
+      renderMyOfferedServices(currentUser.id);
+
+      // Handle form submit
+      const form = document.getElementById('profile-edit-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('edit-name').value.trim();
+        const phone = document.getElementById('edit-phone').value.trim();
+        const city = document.getElementById('edit-city').value.trim();
+        const university = document.getElementById('edit-university').value.trim();
+        const avatar = document.getElementById('edit-avatar').value.trim() || currentUser.avatar;
+        const skillsRaw = document.getElementById('edit-skills').value.trim();
+        const bio = document.getElementById('edit-bio').value.trim();
+
+        const skills = skillsRaw ? skillsRaw.split(/[,،]/).map(s => s.trim()).filter(Boolean) : currentUser.skills;
+
+        Storage.updateUser(currentUser.id, {
+          name, phone, city, university, avatar, skills, bio
+        });
+
+        showToast('تم حفظ التعديلات', 'تم تحديث بيانات ملفك الشخصي بنجاح!');
+        setTimeout(() => window.location.reload(), 600);
+      });
+    });
+
+    function renderMyOfferedServices(userId) {
+      const container = document.getElementById('my-services-list');
+      const services = Storage.getServices().filter(s => s.providerId === userId);
+
+      if (services.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; color: var(--text-muted); padding: 20px;">
+            لم تقم بإضافة أي خدمات بعد.<br>
+            <a href="add-service.html" class="btn btn-outline btn-sm" style="margin-top: 10px;">أضف أول خدمة الآن</a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = services.map(s => `
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem; color: var(--primary);">${s.title}</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">${s.category} • ⏱️ ${s.duration} ساعات</div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <a href="service-details.html?id=${s.id}" class="btn btn-secondary btn-sm" title="معاينة">عرض</a>
+            <button class="btn btn-danger btn-sm" onclick="deleteMyService('${s.id}')" title="حذف">حذف</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.deleteMyService = function(serviceId) {
+      showConfirmModal('حذف الخدمة', 'هل ترغب بالتأكيد في إزالة هذه الخدمة من السوق؟', 'حذف الخدمة', () => {
+        Storage.deleteService(serviceId);
+        showToast('تم الحذف', 'تمت إزالة الخدمة من السوق بنجاح.');
+        setTimeout(() => window.location.reload(), 500);
+      }, true);
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل الخدمة | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .details-layout {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 32px;
+      margin-top: 30px;
+    }
+    .service-main-panel {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .booking-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--secondary);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 100px;
+    }
+    .meta-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0 24px 0;
+    }
+    .provider-full-card {
+      background: var(--bg-warm);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      margin: 24px 0;
+      border: 1px solid var(--border-color);
+    }
+    .provider-full-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--white);
+    }
+    @media (max-width: 900px) {
+      .details-layout {
+        grid-template-columns: 1fr;
+      }
+      .booking-card {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">تفاصيل الخدمة</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="services.html" class="nav-link active">استكشف الخدمات</a>
+        <a href="solidarity.html" class="nav-link">صندوق التكافل</a>
+        <a href="wallet.html" class="nav-link">محفظة الساعات</a>
+      </nav>
+
+      <div class="nav-actions" id="nav-user-actions"></div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="container section-padding" style="padding-top: 20px;">
+    
+    <div style="margin-bottom: 16px;">
+      <a href="services.html" style="font-size: 0.9rem; font-weight: 700; color: var(--secondary); display: inline-flex; align-items: center; gap: 6px;">
+        ➔ العودة إلى دليل الخدمات
+      </a>
+    </div>
+
+    <div class="details-layout" id="service-details-container">
+      <!-- Loading state / rendered dynamically -->
+      <div style="padding: 40px; text-align: center;">جارٍ تحميل تفاصيل الخدمة...</div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-bottom">
+      <div>جميع الحقوق محفوظة © ٢٠٢٥ - مبادرة وقت لبعض</div>
+      <div>وقتك قيمة.. ومساعدتك بتفرق</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

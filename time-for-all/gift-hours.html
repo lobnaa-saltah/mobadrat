@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إهداء الساعات | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">إهداء ساعات رصيد</span>
+        </div>
+      </a>
+
+      <div class="nav-actions" id="nav-user-actions"></div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-user-card">
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="صورة المستخدم" class="sidebar-avatar" id="sidebar-user-avatar">
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" id="sidebar-user-name">جارٍ التحميل...</div>
+          <div class="sidebar-user-role" id="sidebar-user-city">...</div>
+        </div>
+      </div>
+
+      <div class="sidebar-balance-widget">
+        <div>
+          <div class="sb-balance-title">الرصيد المتاح</div>
+          <div class="sb-balance-val"><span id="sidebar-balance-num">0</span> <span>ساعات</span></div>
+        </div>
+        <a href="wallet.html" class="btn btn-primary btn-sm" style="padding: 4px 8px; font-size: 0.75rem;">المحفظة</a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="dashboard.html" class="sidebar-link">
+          <span>📊</span>
+          <span>الرئيسية</span>
+        </a>
+        <a href="services.html" class="sidebar-link">
+          <span>🔍</span>
+          <span>استكشف الخدمات</span>
+        </a>
+        <a href="add-service.html" class="sidebar-link">
+          <span>➕</span>
+          <span>أضف خدمة جديدة</span>
+        </a>
+        <a href="wallet.html" class="sidebar-link">
+          <span>💼</span>
+          <span>محفظة الساعات</span>
+        </a>
+        <a href="solidarity.html" class="sidebar-link">
+          <span>🤝</span>
+          <span>صندوق التكافل</span>
+        </a>
+        <a href="gift-hours.html" class="sidebar-link active">
+          <span>🎁</span>
+          <span>إهداء الساعات</span>
+        </a>
+        <a href="my-requests.html" class="sidebar-link">
+          <span>📋</span>
+          <span>طلباتي والخدمات</span>
+        </a>
+        <a href="profile.html" class="sidebar-link">
+          <span>👤</span>
+          <span>ملفي الشخصي</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div class="dash-title-wrap">
+          <h1>إهداء ساعات رصيد لأحد الأعضاء 🎁</h1>
+          <p>عبر عن امتنانك وتقديرك لزميل دراسة أو جار أو صديق بإهدائه ساعات من رصيدك يستفيد بها في المنصة.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid-2">
+        
+        <!-- Left: Gift Form Card -->
+        <div class="dash-panel">
+          <div class="dash-panel-header">
+            <h3 class="dash-panel-title">تفاصيل الهدية</h3>
+          </div>
+          <div class="dash-panel-body">
+            
+            <div style="background: var(--bg-warm); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 20px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.9rem; color: var(--text-muted);">رصيدك المتاح للإهداء:</span>
+              <span style="font-weight: 800; font-size: 1.15rem; color: var(--primary);" id="gift-available-balance">0 ساعات</span>
+            </div>
+
+            <form id="gift-form">
+              <div class="form-group">
+                <label class="form-label" for="gift-recipient">اختر العضو المستلم للهدية *</label>
+                <select id="gift-recipient" class="form-select" required>
+                  <option value="">-- اختر من قائمة أعضاء المنصة --</option>
+                  <!-- Populated dynamically -->
+                </select>
+                <div class="form-help">يمكنك إهداء الساعات لأي عضو مسجل في مجتمع "وقت لبعض".</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="gift-hours">عدد الساعات المهداة *</label>
+                <input type="number" id="gift-hours" class="form-control" value="1" min="1" max="10" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="gift-message">رسالة إهداء لطيفة (تظهر للمستلم)</label>
+                <textarea id="gift-message" class="form-control" rows="3" placeholder="مثال: شكراً جزيلاً على مجهودك الرائع في المبادرة، يسعدني إهداؤك هذه الساعات!"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-accent btn-block btn-lg" style="margin-top: 10px;">
+                🎁 إرسال الهدية الآن
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Right: Recent Gifts Showcase & Rules -->
+        <div>
+          <div class="dash-panel" style="margin-bottom: 24px;">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">كيف يعمل إهداء الساعات؟</h3>
+            </div>
+            <div class="dash-panel-body" style="font-size: 0.9rem; line-height: 1.7; color: var(--text-dark);">
+              <ul style="list-style: disc; padding-right: 20px;">
+                <li style="margin-bottom: 8px;">يتم خصم الساعات فوراً من محفظتك وإضافتها لمحفظة العضو المستلم.</li>
+                <li style="margin-bottom: 8px;">يتلقى المستلم إشعاراً فورياً يتضمن اسمك ورسالة الإهداء الخاصة بك.</li>
+                <li style="margin-bottom: 8px;">يمكن للمستلم استخدام هذه الساعات لطلب أي خدمة من خدمات المنصة.</li>
+                <li>تُوثق الهدية بشفافية تامة في سجل المعاملات لكلا الطرفين.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">الهدايا الأخيرة المرسلة والواردة</h3>
+            </div>
+            <div class="dash-panel-body" id="recent-gifts-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentUser = Storage.getCurrentUser();
+      if (!currentUser) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Populate sidebar
+      document.getElementById('sidebar-user-avatar').src = currentUser.avatar;
+      document.getElementById('sidebar-user-name').textContent = currentUser.name;
+      document.getElementById('sidebar-user-city').textContent = currentUser.city || 'القاهرة';
+      document.getElementById('sidebar-balance-num').textContent = currentUser.balance;
+      document.getElementById('gift-available-balance').textContent = `${currentUser.balance} ساعات`;
+
+      // Populate recipients dropdown (all other users)
+      const users = Storage.getUsers().filter(u => u.id !== currentUser.id && u.role !== 'admin');
+      const select = document.getElementById('gift-recipient');
+      users.forEach(u => {
+        const opt = document.createElement('option');
+        opt.value = u.id;
+        opt.textContent = `${u.name} (${u.university || u.city || 'عضو'})`;
+        select.appendChild(opt);
+      });
+
+      // Render recent gifts
+      renderRecentGifts(currentUser);
+
+      // Handle form
+      const form = document.getElementById('gift-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const recipientId = select.value;
+        const hours = Number(document.getElementById('gift-hours').value);
+        const msg = document.getElementById('gift-message').value.trim();
+
+        if (!recipientId) {
+          showToast('اختر مستلماً', 'يرجى اختيار العضو المستلم من القائمة', 'warning');
+          return;
+        }
+
+        if (currentUser.balance < hours) {
+          showToast('رصيد غير كافٍ', `رصيدك الحالي هو ${currentUser.balance} ساعة، ولا يمكنك إهداء ${hours} ساعة.`, 'error');
+          return;
+        }
+
+        const recipient = Storage.getUserById(recipientId);
+
+        showConfirmModal(
+          'تأكيد إهداء الساعات',
+          `أنت على وشك إهداء (${hours}) ساعة رصيد إلى ${recipient.name}. سيتم خصمها من محفظتك فوراً. هل ترغب في المتابعة؟`,
+          'تأكيد إرسال الهدية',
+          () => {
+            const result = Storage.giftHours(currentUser.id, recipientId, hours, msg);
+            if (result.success) {
+              showToast('تمت الهدية بنجاح! 🎁', result.message, 'success');
+              
+              const updatedUser = Storage.getUserById(currentUser.id);
+              document.getElementById('sidebar-balance-num').textContent = updatedUser.balance;
+              document.getElementById('gift-available-balance').textContent = `${updatedUser.balance} ساعات`;
+              
+              form.reset();
+              renderRecentGifts(updatedUser);
+            } else {
+              showToast('فشل الإهداء', result.message, 'error');
+            }
+          }
+        );
+      });
+    });
+
+    function renderRecentGifts(currentUser) {
+      const listEl = document.getElementById('recent-gifts-list');
+      const txs = Storage.getUserTransactions(currentUser.id).filter(t => t.type === 'gifted' || t.type === 'received_gift');
+
+      if (txs.length === 0) {
+        listEl.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 16px;">لم تقم بإرسال أو استلام أي هدايا ساعات بعد.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = txs.slice(0, 4).map(t => `
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+          <div>
+            <div style="font-weight: 700; font-size: 0.88rem; color: var(--primary);">
+              ${t.type === 'gifted' ? '🎁 أرسلت هدية إلى:' : '✨ وصلتك هدية من:'} ${t.relatedUser}
+            </div>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">${t.description}</div>
+          </div>
+          <div style="font-weight: 800; font-size: 0.95rem; color: ${t.type === 'gifted' ? '#c5221f' : '#137333'};">
+            ${t.type === 'gifted' ? '-' : '+'}${t.amount} ساعة
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء حساب جديد | وقت لبعض</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">TIME FOR ALL</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">تسجيل الدخول</a>
+        <a href="index.html" class="btn btn-secondary btn-sm">الرئيسية</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auth Content Wrapper -->
+  <main class="auth-wrapper">
+    <div class="auth-container register-wide">
+      <div class="auth-header">
+        <div class="auth-logo-badge">🌱</div>
+        <h1 class="auth-title">انضم إلى مجتمع "وقت لبعض"</h1>
+        <p class="auth-subtitle">سجل بياناتك وابدأ بتبادل المعرفة والمهارات مع طلاب الجامعات والمجتمع</p>
+      </div>
+
+      <!-- Welcome Bonus Announcement -->
+      <div class="welcome-bonus-banner">
+        <span style="font-size: 1.4rem;">🎁</span>
+        <div>
+          <strong>هدية انضمام فورية:</strong>
+          <span>يحصل كل عضو جديد تلقائياً على <strong>ساعتين رصيد ترحيبي</strong> في محفظته للبدء في طلب الخدمات فوراً دون انتظار!</span>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="register-form">
+        <!-- Row 1: Name & Email -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">الاسم الكامل *</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="مثال: محمد خالد السعيد" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">البريد الإلكتروني *</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="example@domain.com" required>
+          </div>
+        </div>
+
+        <!-- Row 2: Passwords -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="reg-password">كلمة المرور *</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="••••••••" required minlength="4">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-password-confirm">تأكيد كلمة المرور *</label>
+            <input type="password" id="reg-password-confirm" class="form-control" placeholder="••••••••" required minlength="4">
+          </div>
+        </div>
+
+        <!-- Row 3: Phone & City -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">رقم الهاتف للتواصل *</label>
+            <input type="tel" id="reg-phone" class="form-control" placeholder="01012345678" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-city">المدينة / الحي *</label>
+            <input type="text" id="reg-city" class="form-control" placeholder="مثال: القاهرة - المعادي" required>
+          </div>
+        </div>
+
+        <!-- Row 4: University / Org (Optional) -->
+        <div class="form-group">
+          <label class="form-label" for="reg-university">الجامعة / الكلية أو جهة العمل (اختياري)</label>
+          <input type="text" id="reg-university" class="form-control" placeholder="مثال: جامعة عين شمس - كلية الهندسة">
+          <div class="form-help">يساعدنا في ربطك بالطلاب والمبادرات الأقرب لمجال دراستك أو اهتمامك.</div>
+        </div>
+
+        <!-- Row 5: Participation Type -->
+        <div class="form-group">
+          <label class="form-label">كيف تفضل المشاركة في المبادرة؟ *</label>
+          <div class="radio-group-boxes">
+            <div class="radio-box-item">
+              <input type="radio" name="participationType" id="type-provider" value="provider">
+              <label for="type-provider" class="radio-box-label">
+                <span style="font-size: 1.3rem;">🤲</span>
+                <span>أرغب بتقديم خدمات</span>
+              </label>
+            </div>
+            <div class="radio-box-item">
+              <input type="radio" name="participationType" id="type-requester" value="requester">
+              <label for="type-requester" class="radio-box-label">
+                <span style="font-size: 1.3rem;">🙋</span>
+                <span>أرغب بطلب خدمات</span>
+              </label>
+            </div>
+            <div class="radio-box-item">
+              <input type="radio" name="participationType" id="type-both" value="both" checked>
+              <label for="type-both" class="radio-box-label">
+                <span style="font-size: 1.3rem;">🔄</span>
+                <span>الاثنان معاً (موصى به)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 6: Skills -->
+        <div class="form-group">
+          <label class="form-label" for="reg-skills">المهارات أو المعارف التي تستطيع تقديمها (افصل بينها بفاصلة)</label>
+          <input type="text" id="reg-skills" class="form-control" placeholder="مثال: شرح رياضيات، ترجمة إنجليزية، مهارات إكسيل، خياطة">
+        </div>
+
+        <!-- Row 7: Short Bio -->
+        <div class="form-group">
+          <label class="form-label" for="reg-bio">نبذة تعريفية قصيرة عنك</label>
+          <textarea id="reg-bio" class="form-control" rows="3" placeholder="عرف مجتمع المنصة بنفسك وبشغفك وما تحب أن تتبادله من وقت وخبرات..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+          إتمام التسجيل وبدء تبادل الوقت
+        </button>
+      </form>
+
+      <div class="auth-footer-links">
+        لديك حساب بالفعل؟ <a href="login.html">سجل الدخول من هنا</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

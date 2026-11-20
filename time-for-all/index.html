@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وقت لبعض | Time for All - منصة بنك الوقت المجتمعي</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Main Header Navigation -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-title">وقت لبعض</span>
+          <span class="logo-sub-title">TIME FOR ALL</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link active">الرئيسية</a>
+        <a href="#how-it-works" class="nav-link">كيف تعمل؟</a>
+        <a href="services.html" class="nav-link">استكشف الخدمات</a>
+        <a href="solidarity.html" class="nav-link">صندوق التكافل</a>
+        <a href="#impact" class="nav-link">الأثر المجتمعي</a>
+        <a href="wallet.html" class="nav-link">محفظة الساعات</a>
+      </nav>
+
+      <!-- User Actions & Auth Buttons (Populated dynamically) -->
+      <div class="nav-actions" id="nav-user-actions">
+        <!-- Rendered by app.js -->
+        <a href="login.html" class="btn btn-outline btn-sm">تسجيل الدخول</a>
+        <a href="register.html" class="btn btn-primary btn-sm">إنشاء حساب</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="فتح القائمة">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>✨</span> مبادرة بنك الوقت المجتمعي والتبادل المعرفي
+          </div>
+          
+          <h1 class="hero-title">
+            وقتك قيمة..<br>
+            <span class="highlight">ومساعدتك بتفرق.</span>
+          </h1>
+
+          <p class="hero-desc">
+            منصة مجتمعية بتجمع طلاب الجامعات والمجتمع المحيط لتبادل الوقت والمهارات، لأن كل إنسان عنده حاجة يقدر يقدمها.
+            <strong style="display: block; margin-top: 8px; color: var(--primary);">
+              "مش لازم يكون معاك فلوس علشان تساعد أو تستفيد."
+            </strong>
+          </p>
+
+          <div class="hero-buttons">
+            <a href="register.html" class="btn btn-primary btn-lg">ابدأ رحلتك الآن</a>
+            <a href="services.html" class="btn btn-secondary btn-lg">اكتشف الخدمات</a>
+          </div>
+
+          <div class="hero-trust-badges">
+            <div class="trust-item">
+              <div class="trust-icon">⏱️</div>
+              <span>ساعة بساعة.. بدون أموال</span>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">🌱</div>
+              <span>صندوق تكافل لمن لا يستطيع الرد</span>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon">🎓</div>
+              <span>ربط حقيقي بين الجامعة والمجتمع</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Graphic & Interactive Preview Card -->
+        <div class="hero-visual-wrap">
+          <div class="hero-floating-card hero-floating-1">
+            <span style="font-size: 1.5rem;">🎁</span>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">إهداء الساعات</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">أهدِ ساعات رصيد لمن تحب</div>
+            </div>
+          </div>
+
+          <div class="hero-floating-card hero-floating-2">
+            <span style="font-size: 1.5rem;">🤝</span>
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">صندوق التكافل</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">المساعدة حق.. مش دين</div>
+            </div>
+          </div>
+
+          <div class="hero-card-main">
+            <div class="hero-time-circle">
+              <span class="num">1</span>
+              <span class="lbl">ساعة مساعدة</span>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+              <h3 style="font-size: 1.15rem; color: var(--primary); margin-bottom: 4px;">معادلة بسيطة وعادلة</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">كل ساعة خدمة تقدمها = ساعة في رصيدك تستفيد بيها في أي وقت</p>
+            </div>
+
+            <!-- Simulated live exchange preview -->
+            <div class="hero-exchange-row">
+              <div class="hero-user-mini">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80" alt="أحمد">
+                <div>
+                  <div class="name">أحمد محمود</div>
+                  <div class="skill">شرح رياضيات جامعية</div>
+                </div>
+              </div>
+              <div class="hero-exchange-badge">قدم ٢ ساعة ➔</div>
+            </div>
+
+            <div class="hero-exchange-row" style="background: #eef5f0;">
+              <div class="hero-user-mini">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="سارة">
+                <div>
+                  <div class="name">سارة علي</div>
+                  <div class="skill">تعليم أساسيات البرمجة</div>
+                </div>
+              </div>
+              <div class="hero-exchange-badge" style="background: var(--light-green); color: var(--primary);">استفادت ٢ ساعة ✓</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 16px;">
+              <a href="wallet.html" style="font-size: 0.85rem; font-weight: 700; color: var(--primary); text-decoration: underline;">
+                تعرف على كيفية عمل محفظة الساعات بالتفصيل ←
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section-padding" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">خطوات بسيطة وواضحة</span>
+        <h2 class="section-title">كيف تعمل منصة "وقت لبعض"؟</h2>
+        <p class="section-desc">
+          نظام بنك الوقت يقوم على مبدأ التكافؤ الإنساني: وقت الجميع متساوٍ، وساعة من وقتك تساوي ساعة من وقت أي شخص آخر.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-num-badge">١</div>
+          <h3 class="step-title">سجل مهاراتك</h3>
+          <p class="step-desc">
+            أنشئ حسابك وحدد المهارات أو المعارف أو الخدمات التي يسعدك تقديمها لغيرك من أفراد المجتمع والطلاب.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-num-badge">٢</div>
+          <h3 class="step-title">قدم خدمة لمجتمعك</h3>
+          <p class="step-desc">
+            اختر طلباً مناسباً لوقتك وموقعك وقدم المساعدة بكل إخلاص، سواء حضورياً أو عبر الإنترنت.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-num-badge">٣</div>
+          <h3 class="step-title">اجمع رصيد الساعات</h3>
+          <p class="step-desc">
+            بمجرد إكمال الخدمة وتأكيدها، تُضاف الساعات مباشرة إلى محفظتك الزمنية الشخصية في المنصة.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-num-badge">٤</div>
+          <h3 class="step-title">استخدم رصيدك أو تبرع به</h3>
+          <p class="step-desc">
+            اطلب خدمة تحتاجها، أو أهدِ ساعات لأصدقائك، أو تبرع بها لصندوق التكافل لدعم غير القادرين.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Section -->
+  <section class="section-padding" style="background: var(--white);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">مميزات المنصة</span>
+        <h2 class="section-title">أكثر من مجرد منصة خدمات</h2>
+        <p class="section-desc">
+          بيئة مجتمعية تفاعلية متكاملة تعزز روح التكافل والمشاركة وتلغي الحواجز المادية بين الناس.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">⏱️</div>
+          <h3 class="feature-title">تبادل الوقت والخدمات</h3>
+          <p class="feature-desc">
+            اطلب الخدمات التي تحتاجها بدون أي رسوم مالية. العملة الوحيدة هنا هي ساعات المساعدة الصادقة المتبادلة.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">💼</div>
+          <h3 class="feature-title">محفظة رصيد الساعات</h3>
+          <p class="feature-desc">
+            سجل دقيق وشفاف يوثق كل ساعة تكسبها، وتصرفها، أو تتبرع بها، مع متابعة لحظية لحركة رصيدك.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🎁</div>
+          <h3 class="feature-title">إهداء الساعات</h3>
+          <p class="feature-desc">
+            تقديراً لجهد زميل أو دعماً لأخ أو صديق، يمكنك تحويل ساعات من رصيدك كهدية مع رسالة شكر خاصة.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🤲</div>
+          <h3 class="feature-title">صندوق التكافل المجتمعي</h3>
+          <p class="feature-desc">
+            مخزون مشترك من الساعات المتبرع بها لمساعدة كبار السن، ذوي الإعاقة، أو من لا يستطيع تقديم خدمة مقابلة.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🎓</div>
+          <h3 class="feature-title">ربط الجامعة بالمجتمع</h3>
+          <p class="feature-desc">
+            توظيف طاقات ومهارات طلاب الجامعات في خدمة أحيائهم ومحيطهم السكاني، مع توثيق ساعات التطوع المجتمعي.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🛡️</div>
+          <h3 class="feature-title">أمان وتأكيد مشترك</h3>
+          <p class="feature-desc">
+            لا يتم تحويل الساعات إلا بعد إتمام الخدمة وتأكيد الطرفين، مع نظام تقييمات موثوق يعكس جدية الأعضاء.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Impact Section -->
+  <section class="section-padding" id="impact">
+    <div class="container">
+      <div class="impact-section">
+        <div class="impact-header">
+          <h2>أثرنا المجتمعي في أرقام</h2>
+          <p>أرقام تعكس كيف يمكن لساعة واحدة من وقتك أن تصنع فارقاً حقيقياً في حياة شخص آخر.</p>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-stat-card">
+            <div class="impact-number" id="stat-users">185+</div>
+            <div class="impact-label">عضو ومشارك نشط</div>
+            <div class="impact-demo-note">(بيانات تجريبية توضيحية)</div>
+          </div>
+
+          <div class="impact-stat-card">
+            <div class="impact-number" id="stat-completed">420+</div>
+            <div class="impact-label">خدمة مكتملة بنجاح</div>
+            <div class="impact-demo-note">(بيانات تجريبية توضيحية)</div>
+          </div>
+
+          <div class="impact-stat-card">
+            <div class="impact-number" id="stat-hours">860+</div>
+            <div class="impact-label">ساعة مساعدة متبادلة</div>
+            <div class="impact-demo-note">(بيانات تجريبية توضيحية)</div>
+          </div>
+
+          <div class="impact-stat-card">
+            <div class="impact-number" id="stat-solidarity">130+</div>
+            <div class="impact-label">ساعة تكافل مجتمعي</div>
+            <div class="impact-demo-note">(لغير القادرين على الرد)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Services Marketplace Preview -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">سوق المهارات والخدمات</span>
+        <h2 class="section-title">أحدث الخدمات المتاحة للتبادل</h2>
+        <p class="section-desc">
+          تصفح نماذج من الخدمات والمهارات التي يقدمها أعضاء المنصة حالياً ويمكنك الاستفادة منها برصيدك.
+        </p>
+      </div>
+
+      <!-- Rendered dynamically from storage -->
+      <div class="services-grid" id="featured-services-container">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="services.html" class="btn btn-primary btn-lg">استكشف جميع الخدمات المتاحة (٨ خدمات) ←</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Solidarity Fund Callout Banner -->
+  <section class="container">
+    <div class="solidarity-banner">
+      <div class="solidarity-banner-inner">
+        <div>
+          <span class="solidarity-banner-tag">صندوق التكافل المجتمعي</span>
+          <h2 class="solidarity-banner-title">
+            "لأن المساعدة حق.. مش دين."
+          </h2>
+          <p class="solidarity-banner-desc">
+            مش كل إنسان قادر يقدم خدمة بديلة في نفس الوقت. لذلك أنشأنا صندوق التكافل؛ رصيد مشترك من الساعات المتبرع بها يتيح لكبار السن، وأصحاب الحالات الخاصة، ومن يمر بظروف استثنائية الحصول على الدعم دون أن يشعر بأنه مدين لأحد.
+          </p>
+          <div class="solidarity-banner-actions">
+            <a href="solidarity.html" class="btn btn-accent btn-lg">ساهم بوقتك في الصندوق</a>
+            <a href="solidarity.html#request-help" class="btn btn-outline btn-lg" style="color: #fff; border-color: rgba(255,255,255,0.7);">
+              اطلب مساعدة تكافلية
+            </a>
+          </div>
+        </div>
+
+        <div class="solidarity-stats-box">
+          <div class="solidarity-pool-num" id="banner-available-hours">24</div>
+          <div class="solidarity-pool-label">ساعة متاحة حالياً في صندوق التكافل</div>
+          <p style="font-size: 0.82rem; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 16px;">
+            تبرع بساعة واحدة فقط من رصيدك لتساعد غيرك في تعلم مهارة، أو إنهاء معاملة، أو فحص تقرير طبي.
+          </p>
+          <a href="solidarity.html" class="btn btn-secondary btn-sm btn-block">تعرف على قصص التكافل ←</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-about">
+          <div class="logo-brand" style="margin-bottom: 12px;">
+            <div class="logo-icon-wrap" style="background: var(--accent); color: #174C3C;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="logo-text-wrap">
+              <span class="logo-main-title" style="color: #fff;">وقت لبعض</span>
+              <span class="logo-sub-title" style="color: var(--accent);">TIME FOR ALL</span>
+            </div>
+          </div>
+          <p>
+            مبادرة مجتمعية غير ربحية تهدف لبناء نسيج اجتماعي متماسك من خلال بنك الوقت. نربط طلاب الجامعات بالمجتمع المحلي لتبادل المهارات والخدمات، لأن وقت كل إنسان ذو قيمة.
+          </p>
+          <div style="margin-top: 16px; font-size: 0.85rem; color: var(--accent);">
+            "وقتك قيمة.. ومساعدتك بتفرق"
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li><a href="services.html">استكشف الخدمات</a></li>
+            <li><a href="solidarity.html">صندوق التكافل المجتمعي</a></li>
+            <li><a href="wallet.html">محفظة رصيد الساعات</a></li>
+            <li><a href="gift-hours.html">إهداء الساعات</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">حسابي ولوحة التحكم</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">لوحة التحكم الشخصية</a></li>
+            <li><a href="my-requests.html">طلباتي والخدمات المتبادلة</a></li>
+            <li><a href="add-service.html">أضف خدمة جديدة</a></li>
+            <li><a href="profile.html">الملف الشخصي</a></li>
+            <li><a href="admin.html">لوحة إدارة المبادرة (Admin)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">معلومات النموذج التجريبي</h4>
+          <p style="font-size: 0.85rem; color: #A0B3AB; line-height: 1.6; margin-bottom: 12px;">
+            هذا نموذج واجهة أمامية متكامل (Frontend Prototype) يعمل بتقنيات HTML5 و CSS3 و Vanilla JavaScript وحفظ البيانات عبر LocalStorage.
+          </p>
+          <button class="btn btn-outline btn-sm" onclick="resetAllDemoData()" style="color: var(--accent); border-color: var(--accent);">
+            🔄 إعادة ضبط البيانات التجريبية
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>جميع الحقوق محفوظة © ٢٠٢٥ - مبادرة وقت لبعض (Time for All)</div>
+        <div>تصميم وتطوير نموذجي للمسابقات الجامعية والمبادرات المجتمعية</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate landing page statistics and featured services
+    document.addEventListener('DOMContentLoaded', () => {
+      // Update solidarity fund display
+      const fund = Storage.getSolidarityFund();
+      const availableEl = document.getElementById('banner-available-hours');
+      if (availableEl) availableEl.textContent = fund.availableHours || 24;
+
+      // Render 3 top featured services
+      const services = Storage.getServices().filter(s => s.status === 'approved').slice(0, 3);
+      const container = document.getElementById('featured-services-container');
+      
+      if (container) {
+        container.innerHTML = services.map(s => `
+          <div class="service-card">
+            <div class="service-card-body">
+              <div class="service-card-top">
+                <span class="service-category">${s.category}</span>
+                <span class="service-duration-badge">${AppIcons.clock} ${s.duration} ساعة</span>
+              </div>
+              <h3 class="service-card-title">${s.title}</h3>
+              <p class="service-card-desc">${s.shortDesc}</p>
+              
+              <div class="service-provider-info">
+                <div class="provider-meta">
+                  <img src="${s.providerAvatar}" alt="${s.providerName}" class="provider-avatar">
+                  <div>
+                    <div class="provider-name">${s.providerName}</div>
+                    <span class="badge ${s.type === 'online' ? 'badge-online' : 'badge-inperson'}">
+                      ${s.type === 'online' ? '🌐 عبر الإنترنت' : '📍 ' + s.location}
+                    </span>
+                  </div>
+                </div>
+                <div class="service-rating">
+                  ${AppIcons.star} ${s.rating}
+                </div>
+              </div>
+            </div>
+            <div class="service-card-footer">
+              <a href="service-details.html?id=${s.id}" class="btn btn-secondary btn-block">تفاصيل وطلب الخدمة</a>
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>
